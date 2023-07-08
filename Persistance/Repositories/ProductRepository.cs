@@ -16,17 +16,17 @@ namespace Persistance.Repositories
 
         public async Task<List<ProductEntity>> GetAll()
         {
-            return await this._db.product.Where(p => p.estado == true).ToListAsync();
+            return await this._db.producto.Where(p => p.estado == true).ToListAsync();
         }
 
         public async Task<ProductEntity> GetByCode(string code)
         {
-            return await this._db.product.Where(p => p.codigo == code && p.estado == true).FirstOrDefaultAsync();
+            return await this._db.producto.Where(p => p.codigo == code && p.estado == true).FirstOrDefaultAsync();
         }
 
         public async Task<ProductEntity> GetById(int id)
         {
-            return await this._db.product.Where(p => p.idproducto == id && p.estado == true).FirstOrDefaultAsync();
+            return await this._db.producto.Where(p => p.idproducto == id && p.estado == true).FirstOrDefaultAsync();
         }
     }
 }

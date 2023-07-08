@@ -1,5 +1,6 @@
 using Persistance;
 using Application;
+using Domain.Base;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,7 @@ builder.Services.AddSwaggerGen();
 // Agregar registro de servicios para injección de dependencias
 builder.Services.AddPersistenceServices();
 builder.Services.AddApplicationServices();
+Config.Instance().ConnectionString = builder.Configuration.GetConnectionString("default");
 
 var app = builder.Build();
 

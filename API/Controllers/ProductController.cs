@@ -17,11 +17,11 @@ namespace API.Controllers
         }
 
         [HttpGet("all")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var data = this._productService.GetAll();
+                var data = await this._productService.GetAll();
                 return Ok(data);
             }
             catch (Exception ex)
@@ -35,11 +35,11 @@ namespace API.Controllers
         }
 
         [HttpGet("id")]
-        public IActionResult GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
             try
             {
-                var data = this._productService.GetById(id);
+                var data = await this._productService.GetById(id);
                 return Ok(data);
             }
             catch (Exception ex)
@@ -53,11 +53,11 @@ namespace API.Controllers
         }
 
         [HttpGet("code")]
-        public IActionResult GetByCode(string code)
+        public async Task<IActionResult> GetByCode(string code)
         {
             try
             {
-                var data = this._productService.GetByCode(code);
+                var data = await this._productService.GetByCode(code);
                 return Ok(data);
             }
             catch (Exception ex)

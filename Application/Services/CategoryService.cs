@@ -44,7 +44,7 @@ namespace Application.Services
 
         public async Task<BaseResponse<CategoryDto>> GetById(int id)
         {
-            if (id < 0) throw new Exception("El id de búsqueda no es valido");
+            if (id <= 0) throw new Exception("El id de búsqueda no es valido");
 
             var category = await this._categoryRepository.GetById(id);
             var data = Mapper(category);

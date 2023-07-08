@@ -20,7 +20,7 @@ namespace Application.Services
             return new ProductDto
             {
                 Id = product.idproducto,
-                Category = product.category,
+                //Category = product.category,
                 Code = product.codigo,
                 Description = product.descripcion,
                 Image = product.imagen,
@@ -63,7 +63,7 @@ namespace Application.Services
 
         public async Task<BaseResponse<ProductDto>> GetById(int id)
         {
-            if (id < 0) throw new Exception("El id de búsqueda no es valido");
+            if (id <= 0) throw new Exception("El id de búsqueda no es valido");
 
             var product = await this._productRepository.GetById(id);
             var data = Mapper(product);

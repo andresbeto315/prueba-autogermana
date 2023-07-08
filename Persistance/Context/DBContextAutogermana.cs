@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace Persistance.Context
 {
@@ -18,9 +19,18 @@ namespace Persistance.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CategoryEntity>(c =>
+            {
+                c.HasKey("idcategoria");
+            });
+
+            modelBuilder.Entity<ProductEntity>(c =>
+            {
+                c.HasKey("idproducto");
+            });
         }
 
         public DbSet<CategoryEntity> categoria { get; set; }
-        public DbSet<ProductEntity> product { get; set; }
+        public DbSet<ProductEntity> producto { get; set; }
     }
 }
